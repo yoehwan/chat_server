@@ -7,7 +7,7 @@ import (
 )
 
 func HandleRoomApi(r *gin.Engine) {
-	createRoom(r)
+	updateRoom(r)
 	loadRoomData(r)
 	removeRoom(r)
 	loadRoomList(r)
@@ -31,7 +31,7 @@ func removeRoom(r *gin.Engine) {
 	})
 }
 
-func createRoom(r *gin.Engine) {
+func updateRoom(r *gin.Engine) {
 	r.POST("/room", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "POST",
