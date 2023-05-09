@@ -8,14 +8,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var userController *controller.UserController
+var lobbyController *controller.LobbyController
 
 func main() {
-	userController = &controller.UserController{}
+	lobbyController = controller.NewLobbyController()
 	r := gin.Default()
 	r.Use(logger.SetLogger())
-	api.HandleRoomApi(r)
-	api.HandleUserApi(r, userController)
-
-	r.Run("localhost:4330") // li
+	api.HandleRoomApi(r, lobbyController)
+	api.HandleUserApi(r, lobbyController)
+	r.Run("localhost:4330")
 }

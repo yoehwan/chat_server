@@ -6,10 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var userController *controller.UserController
-
-func HandleUserApi(r *gin.Engine, c *controller.UserController) {
-	userController = c
+func HandleUserApi(r *gin.Engine, c *controller.LobbyController) {
 	updateUser(r)
 	loadUserData(r)
 	removeUser(r)
